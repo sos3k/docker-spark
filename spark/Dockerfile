@@ -1,5 +1,5 @@
-FROM bde2020/hadoop-base:1.0.0
-MAINTAINER Ivan Ermilov <ivan.s.ermilov@gmail.com>
+FROM bde2020/hadoop-base
+MAINTAINER Radoslaw Wojciechowski <radoslaw.wojciechowski@gmail.com>
 
 RUN gpg --keyserver pool.sks-keyservers.net --recv-keys \
     A864F0C3E5262F9A229B85D07B165D2A15E06093 \
@@ -9,7 +9,7 @@ RUN gpg --keyserver pool.sks-keyservers.net --recv-keys \
     5AA90E72812FF2467904277D548F5FEE9E4FE3AF \
     EEDABD1C71C548D6F00661D37C6C105FFC8ED089
 
-ENV SPARK_VERSION 1.6.1
+ENV SPARK_VERSION 2.0.0
 ENV SPARK_URL https://www.apache.org/dist/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-without-hadoop.tgz
 RUN set -x \
     && curl -fSL "$SPARK_URL" -o /tmp/spark.tar.gz \
