@@ -1,11 +1,13 @@
-FROM bde2020/hadoop-base:1.0.0
-MAINTAINER Ivan Ermilov <ivan.s.ermilov@gmail.com>
+FROM bde2020/hadoop-base
+MAINTAINER Radoslaw Wojciechowski <radoslaw.wojciechowski@gmail.com>
 
-ENV APACHE_SPARK_VERSION 1.6.1
-ENV APACHE_HADOOP_VERSION 2.7.1
+ENV SPARK_NOTEBOOK_VERSION 0.7.0
+ENV SCALA_VERSION 2.11.8
+ENV SPARK_VERSION 2.0.1
+ENV HADOOP_VERSION 2.7.2
 
 RUN set -x \
-    && curl -fSL "https://dl.dropboxusercontent.com/u/4882345/spark-notebook/spark-notebook-0.6.3-scala-2.11.7-spark-1.6.1-hadoop-2.7.1-with-hive-with-parquet.tgz" -o /tmp/spark-notebook.tgz \
+    && curl -fSL "https://www.dropbox.com/s/t4qbf7ayy679bmc/spark-notebook-$SPARK_NOTEBOOK_VERSION-scala-$SCALA_VERSION-spark-$SPARK_VERSION-hadoop-$HADOOP_VERSION-with-hive-with-parquet.tar" -o /tmp/spark-notebook.tgz \
     && tar -xzvf /tmp/spark-notebook.tgz -C /opt/ \
     && mv /opt/spark-notebook-* /opt/spark-notebook \
     && rm /tmp/spark-notebook.tgz
